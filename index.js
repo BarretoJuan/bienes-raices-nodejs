@@ -1,4 +1,9 @@
-const express = require('express')
+
+// ECMAScript Modules Imports
+import express from 'express'
+
+// CommonJS Imports
+// const express = require('express')
 
 // app creation
 const app = express()
