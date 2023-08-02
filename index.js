@@ -1,22 +1,15 @@
 
 // ECMAScript Modules Imports
-import express from 'express'
+import express from 'express';
+import usuarioRoutes from './routes/usuarioRoutes.js'
 
 // CommonJS Imports
-// const express = require('express')
+// const express = require('express');
 
 // app creation
-const app = express()
+const app = express();
 
-// Routing
-app.get('/', function(req,res) {
-    res.json({msg: 'Hello Express'})
-}) 
-
-app.get('/about-us', function(req,res) {
-    res.send('Info About us')
-})
-
+app.use('/', usuarioRoutes)
 
 // Port Definition
 const port = 3000;
