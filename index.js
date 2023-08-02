@@ -1,17 +1,21 @@
 const express = require('express')
 
+// app creation
 const app = express()
 
+// Routing
+app.get('/', function(req,res) {
+    res.json({msg: 'Hello Express'})
+}) 
 
-app.get("/", function(req,res) {
-    res.send("Hola Mundo en Express")
+app.get('/about-us', function(req,res) {
+    res.send('Info About us')
 })
 
 
-// Definir puerto
-
+// Port Definition
 const port = 3000;
 app.listen(port, () => {
-    console.log("El server está funcionando en el puerto ${port}")
+    console.log(`Server is working on ${port}`)
 });
 
