@@ -9,7 +9,12 @@ import usuarioRoutes from './routes/usuarioRoutes.js'
 // app creation
 const app = express();
 
-app.use('/', usuarioRoutes)
+// Implementing PUG template engine
+app.set('view engine', 'pug')
+app.set('views', './views')
+
+//Routing
+app.use('/auth', usuarioRoutes)
 
 // Port Definition
 const port = 3000;
