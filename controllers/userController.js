@@ -5,6 +5,13 @@ const loginForm = (req,res) => {
     })
 }
 
+const registerForm = (req,res) => {
+    res.render('auth/register', {
+        authenticated: false
+    })
+}
+
 export {
-    loginForm
+    loginForm,
+    registerForm
 }
