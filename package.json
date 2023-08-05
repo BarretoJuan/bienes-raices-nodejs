@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css": "postcss public/css/tailwind.css -o public/css/app.css --watch"
   },
   "keywords": [
     "MVC",
@@ -24,6 +25,10 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "autoprefixer": "^10.4.14",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.3"
   }
 }

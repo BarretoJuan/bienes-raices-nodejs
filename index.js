@@ -13,6 +13,9 @@ const app = express();
 app.set('view engine', 'pug')
 app.set('views', './views')
 
+// Static directory
+app.use(express.static('public'))
+
 //Routing
 app.use('/auth', usuarioRoutes)
 
