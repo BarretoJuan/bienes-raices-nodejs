@@ -1,5 +1,19 @@
 extends ../layouts/index.pug
 
 block contenido
-  div
-    h2.text-6xl.text-center.font-extrabold Inicia Sesion
+  div.py-10
+    h1.text-4xl.my-10.font-extrabold.text-center Bienes
+      span.font-normal Raices
+    h2.text-2xl.text-center.font-extrabold=pagina
+    
+    div.mt-8.mx-auto.max-w-md
+      div.bg-white.py-8.px-4.shadow
+        form.space-y-5(action="")
+          div 
+            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="email") Tu Email 
+            input#email.w-full.px-3.py-3.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder = "Tu email" type = "email" name="email")
+          div 
+            label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="password") Tu Contraseña 
+            input#password.w-full.px-3.py-3.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder = "Tu contraseña" type = "password" name="password")
+          input(class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 cursor-pointer" type="submit" value="Crear cuenta")
+          

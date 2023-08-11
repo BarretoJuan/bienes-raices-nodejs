@@ -1,7 +1,8 @@
 
 const loginForm = (req,res) => {
     res.render('auth/login', {
-        authenticated: true
+        authenticated: true,
+        pagina : "Inicia Sesión"
     })
 }
 
