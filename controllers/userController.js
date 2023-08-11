@@ -13,7 +13,14 @@ const registerForm = (req,res) => {
     })
 }
 
+const forgotPasswordForm = (req,res) => {
+    res.render('auth/forgotPassword', {
+        pagina : "Recupera tu cuenta de Bienes Raíces"
+    })
+}
+
 export {
     loginForm,
-    registerForm
+    registerForm,
+    forgotPasswordForm
 }
