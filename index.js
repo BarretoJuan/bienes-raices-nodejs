@@ -2,12 +2,22 @@
 // ECMAScript Modules Imports
 import express from 'express';
 import usuarioRoutes from './routes/usuarioRoutes.js'
+import db from './config/db.js'
 
 // CommonJS Imports
 // const express = require('express');
 
 // app creation
 const app = express();
+
+// Connection to database
+try {
+    await db.authenticate();
+    console.log("Conexión correcta a la base de datos")
+
+} catch (error) {
+    console.log(error)
+}
 
 // Implementing PUG template engine
 app.set('view engine', 'pug')
