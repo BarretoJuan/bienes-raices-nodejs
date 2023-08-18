@@ -10,6 +10,9 @@ import db from './config/db.js'
 // app creation
 const app = express();
 
+
+// Form declaration
+app.use(express.urlencoded({extended:true}));
 // Connection to database
 try {
     await db.authenticate();
