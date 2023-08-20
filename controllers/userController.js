@@ -1,3 +1,5 @@
+import { check, validationResult, ExpressValidator } from "express-validator";
+import Usuario from "../models/Usuario.js"
 
 const loginForm = (req,res) => {
     res.render('auth/login', {
@@ -17,9 +19,12 @@ const registerForm = (req,res) => {
     })
 };
 
-const registerAction = (req,res) => {
-    console.log("Registrando..")
-    console.log(req.body)
+const registerAction = async (req,res) => {
+    await check('nombre').notEmpty().withMessage("El nombre no puede estar vacío").run(req)
+    let resultado = validationResult(req)
+    res.json(resultado.array())
+    const usuario = await Usuario.create(req.body)
+    res.json(usuario)
 
 };
 

@@ -13,11 +13,11 @@ const Usuario = db.define('usuarios', {
     password: {
         type: DataTypes.STRING,
         allownull:false
-    },
-    token: {
-        type: DataTypes.String
-    },
-    confirmado: DataTypes.BOOLEAN
+    }
+    // token: {
+    //     type: DataTypes.String
+    // },
+    // confirmado: DataTypes.BOOLEAN
 });
 
 export default Usuario;
