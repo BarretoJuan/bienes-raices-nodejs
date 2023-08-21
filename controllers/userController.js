@@ -21,10 +21,25 @@ const registerForm = (req,res) => {
 
 const registerAction = async (req,res) => {
     await check('nombre').notEmpty().withMessage("El nombre no puede estar vacío").run(req)
+    await check('email').isEmail().withMessage("El email debe ser una direccion email válida").run(req)
+    await check('password').isLength({min:6, max:255}).withMessage("La contraseña debe tener minimo 6 y maximo 255 caracteres").run(req)
+    await check('repetir_password').equals("password").withMessage("Las contraseñas no son iguales").run(req)
     let resultado = validationResult(req)
-    res.json(resultado.array())
+
+    // verificar que resultado esté vacio
+    if (!resultado.isEmpty()) {
+        return res.render('auth/register', {
+        authenticated: false,
+        pagina : "Crear cuenta",
+        errores : resultado.array()
+    })
+
+    }
+
     const usuario = await Usuario.create(req.body)
     res.json(usuario)
+    res.json(resultado.array())
+   
 
 };
 
