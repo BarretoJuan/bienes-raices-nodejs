@@ -31,7 +31,10 @@ const registerAction = async (req,res) => {
         return res.render('auth/register', {
         authenticated: false,
         pagina : "Crear cuenta",
-        errores : resultado.array()
+        errores : resultado.array(),
+        usuario : {nombre: req.body.nombre,
+                   email : req.body.email,
+                }
     })
 
     }
