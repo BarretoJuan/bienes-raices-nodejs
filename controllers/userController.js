@@ -52,11 +52,13 @@ const registerAction = async (req,res) => {
         })
     }
 
-    const usuario = await Usuario.create(req.body)
-    res.json(usuario)
-    res.json(resultado.array())
+    await Usuario.create({
+        nombre: req.body.nombre,
+        email: req.body.email,
+        password: req.body.password,
+        token:123
+    })
    
-
 };
 
 
