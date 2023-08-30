@@ -59,7 +59,10 @@ const registerAction = async (req,res) => {
         password: req.body.password,
         token: generarId()
     })
-    console.log(generarId())
+    res.render('templates/mensaje.pug', {
+        pagina: "Cuenta creada exitosamente",
+        mensaje: "Se te envió un código de verificación por e-mail, consúltalo para confirmar tu cuenta"
+    })
    
 };
 
