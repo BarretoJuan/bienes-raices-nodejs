@@ -75,6 +75,34 @@ const registerAction = async (req,res) => {
    
 };
 
+const verifyEmail = async (req,res) => {
+    console.log('?')
+    console.log(req.params.token)
+    
+    // verify whether the token is valid or not
+    const usuario = await Usuario.findOne({ where: {token: req.params.token} })
+    console.log(usuario)
+
+    if (usuario) {
+        return res.render ('auth/verifyEmail.pug', {
+
+            pagina: 'Usuario Confirmado exitosamente',
+            mensaje: "Su usuario fue confirmado",
+            error:false
+        })
+
+    }
+
+    else {
+        return res.render ('auth/verifyEmail.pug', {
+
+            pagina: 'Error al confirmar el usuario',
+            mensaje: "Intente de nuevo",
+            error:true
+        })
+    }
+}
+
 
 
 const forgotPasswordForm = (req,res) => {
@@ -92,6 +120,7 @@ export {
     registerForm,
     forgotPasswordForm,
     registerAction,
+    verifyEmail,        
     loginAction,
     forgotPasswordAction
 }

@@ -1,5 +1,5 @@
 import express from "express";
-import {loginForm, registerForm, registerAction, forgotPasswordForm, forgotPasswordAction, loginAction } from "../controllers/userController.js"
+import {loginForm, registerForm, registerAction, verifyEmail, forgotPasswordForm, forgotPasswordAction, loginAction } from "../controllers/userController.js"
 
 const router = express.Router();
 
@@ -9,6 +9,8 @@ router.post('/login', loginAction);
 
 router.get('/register', registerForm);
 router.post('/register', registerAction);
+
+router.get('/verify-email/:token', verifyEmail);
 
 router.get('/forgot-password', forgotPasswordForm);
 router.post('/forgot-password', forgotPasswordAction);
